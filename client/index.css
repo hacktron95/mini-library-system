@@ -1,11 +1,46 @@
-/* .btn-primary {
-  border: 1px solid red;
+.navbar {
+  background-color: transparent;
+}
+
+.top-nav-collapse {
+  background-color: #4fc3f7;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #4fc3f7;
+  }
+}
+
+html {
+  height: 100%;
+  background-color: #e1f5fe45;
+  /* align-items: center; */
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #e1f5fe45;
+  margin: 0 auto;
+}
+.books-lover {
+  width: 100%;
+  /* height: 300px; */
+}
+.bb {
+  /* border: 1px solid red; */
+}
+.myowndiv {
+  width: 100%;
+  height: 500px;
   background-color: orange;
 }
- */
-
-/* you can edit your css here */
-
-.someclass {
-  border: 10px solid blue;
+canvas {
+  background-color: transparent;
+  position: absolute;
+}
+.my-container {
+  border: 1px solid red;
+  margin: 0 auto;
 }
