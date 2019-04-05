@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+%html
+  %head
+    %meta{charset: 'UTF-8'}
+    %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    %title Give rating
+  %body
+    .container
+      %h2 Rate Hotel Akzent Forst
+      We hope you had a great experience at Hotel Akzent Forst!
+      %br
+      Please help us improve our service by providing a review below.
+      %img.cover-image{src: 'https://s3.eu-central-1.amazonaws.com/socialwave-email-campaigns/give-rating-dialog/akzent-hotel-alte-linde.jpg'}
+      .question.give-rating
+        %h3.obligatory Rating:
+        .rating
+          %span
+            %input#str5{:name => "rating", :type => "radio", :value => "5"}/
+            %label{:for => "str5"} ★
+          %span
+            %input#str4{:name => "rating", :type => "radio", :value => "4"}/
+            %label{:for => "str4"} ★
+          %span
+            %input#str3{:name => "rating", :type => "radio", :value => "3"}/
+            %label{:for => "str3"} ★
+          %span
+            %input#str2{:name => "rating", :type => "radio", :value => "2"}/
+            %label{:for => "str2"} ★
+          %span
+            %input#str1{:name => "rating", :type => "radio", :value => "1"}/
+            %label{:for => "str1"} ★
+      %br
+      .question.would-you-return
+        %h3.obligatory Would you return again?
+        .thumbs
+          %span.unselected
+            %input#thumbs-up{:name => "rating", :type => "radio", :value => "5"}
+              %label{:for => "thumbs-up"} 👍🏻
+          %span
+            %input#thumbs-down{:name => "rating", :type => "radio", :value => "5"}
+              %label{:for => "thumbs-down"} 👎🏻
+      .question.name
+        %h3.obligatory Your name:
+        %input{type: 'text'}
+      .question.comment
+        %h3 Leave your comment:
+        %textarea
+      .submit
+        %input#submit-button.pure-material-button-contained{type: 'submit', value: 'Submit now!'}
+       
