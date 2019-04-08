@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Libra</title>
+</head>
+
+<!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"/>
+	
+    <!--Bootstrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+	
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet" />
+	
+    <!-- Your custom styles (optional) -->
+    <link href="loans.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Comfortaa"
+      rel="stylesheet"
+    />
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"crossorigin="anonymous">
+   <script  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+   <script src="bootstable.min.js"></script>
+   </head>
+	
+
+<!--Body-->
+<body>
+    <canvas id="nokey" width="800" height="800">
+      Your Browser Don't Support Canvas
+    </canvas>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark myNav">
+      <span class="navbar-brand" href="#"
+        ><strong><i class="fas fa-book-open"></i> Libra</strong></span
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+		   <li class="nav-item">
+            <a class="nav-link" href="app.html">Apps</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownMenuLink-4"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user"></i>
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right dropdown-info"
+              aria-labelledby="navbarDropdownMenuLink-4"
+            >
+              <a class="dropdown-item" href="#">My account</a>
+              <a class="dropdown-item" href="SignIn.html">Log Out</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+	
+	<div class="my-container">
+	<form class="text-center  p-5">
+    <p class="h4 mb-4">Book Loans</p>
+	
+<!--Table-->
+<table class="table" id="makeEditable">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Book Title</th>
+		<th>Check-in date</th>
+		<th>Check-out date</th>
+		<span style="fixed-right"><button id="but_add">Add New Row</button></span>
+		
+      </tr>
+    </thead>
+	
+    <tbody>
+      <tr>
+        <td>James</td>
+        <td>Darlson</td>
+        <td>Hooked</td>
+		<td>
+		<div class="input-group date" data-date-format="dd.mm.yyyy">
+        <input type="date" class="form-control" placeholder="dd.mm.yyyy">
+        </div>
+		</td>
+		<td>
+		<div class="input-group date" data-date-format="dd.mm.yyyy">
+        <input type="date" class="form-control" placeholder="dd.mm.yyyy">
+        </div>
+		</td>
+      </tr>      
+   <tr>
+        <td>Maria</td>
+        <td>Samson</td>
+        <td>Brain Rules</td>
+		<td>
+		<div class="input-group date" data-date-format="dd.mm.yyyy">
+        <input type="date" class="form-control" placeholder="dd.mm.yyyy">
+        </div>
+		</td>
+		<td>
+		<div class="input-group date" data-date-format="dd.mm.yyyy">
+        <input type="date" class="form-control" placeholder="dd.mm.yyyy">
+        </div>
+		</td>
+		 </tr>  
+		 
+   <tr>
+		<td>Jimmy</td>
+        <td>Lai</td>
+        <td>Culture and Psychology</td>
+		<td>
+		<div class="input-group date" data-date-format="dd.mm.yyyy">
+        <input type="date" class="form-control" placeholder="dd.mm.yyyy">
+        </div>
+		</td>
+		<td>
+		<div class="input-group date" data-date-format="dd.mm.yyyy">
+        <input type="date" class="form-control" placeholder="dd.mm.yyyy">
+        </div>
+		</td>
+		</tr>
+		
+      </tr> 
+    </tbody>
+  </table>
+</div>
+</div>
+
+<script>
+ $('#makeEditable').SetEditable({ $addButton: $('#but_add')});
+</script>
+
+<!--Footer-->
+<footer class="font-small footer-color">
+      <!-- Copyright -->
+      <div class="text-center py-3">
+        <!-- Facebook -->
+        <a class="fb-ic">
+          <i class="fab fa-facebook-f fa-lg white-text mr-md-3"> </i>
+        </a>
+        <!-- Twitter -->
+        <a class="tw-ic">
+          <i class="fab fa-twitter fa-lg white-text mr-md-3"> </i>
+        </a>
+
+        © 2018 Copyright to &nbsp
+        <a href="#">
+          Libra.com
+        </a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.js"></script>
+    <script type="text/javascript" src="js/canvas_controller.js"></script>
+	
+
+
+</body>
+</html>
