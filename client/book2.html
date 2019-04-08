@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Library Book Rating</title>
+  <link rel="icon" type="image/ico" href="lib.png" />
+  
+  
+  
+      <link rel="stylesheet" href="rcs/st1.css">
+
+  
+</head>
+
+<body>
+
+  <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width,initial-scale=1' name='viewport'>
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <title>Give rating</title>
+  </head>
+  <body>
+    <div class='container'>
+      <h2>Hamlet by William Shakespeare</h2>
+      The Tragedy of Hamlet, Prince of Denmark, or more simply Hamlet, 
+	  is a tragedy by William Shakespeare, believed to have been written between 1599 and 1601. 
+	  The play, set in Denmark, recounts how Pri...
+      <br>
+	  
+	  
+      <img class='cover-image' src='img/book2.png'>
+          <div class='question give-rating'>
+        <h3 class='obligatory'>Rate this book:</h3>
+        <div class='rating'>
+          <span>
+            <input id="str5" class="get_value" type="radio" value="5" name= "rating">
+            <label for="str5" title= "Awesome! 5 stars">★</label>
+          </span>
+          <span>
+            <input id='str4' class="get_value" name='rating' type='radio' value='4'>
+            <label for='str4' title= "Good Enough! 4 stars">★</label>
+          </span>
+          <span>
+            <input id='str3' class="get_value" name='rating' type='radio' value='3'>
+            <label for='str3' title= "Average! 3 stars">★</label>
+          </span>
+          <span>
+            <input id='str2' class="get_value" name='rating' type='radio' value='2'>
+            <label for='str2' title= "Not as expected! 2 stars">★</label>
+          </span>
+          <span>
+            <input id='str1' class="get_value" name='rating' type='radio' value='1'>
+            <label for='str1' title= "Disappointed! 1 star">★</label>
+          </span> 
+      </div>
+	  </div>
+      <br>
+      <div class='question comment'>
+        <h3>Review Comment of this book:</h3>
+        <textarea></textarea>
+      </div>
+      <div class='submit'>
+        <input class='pure-material-button-contained' id='submit-button' type='submit' value='Submit now!'>
+      </div>
+    </div>
+  </body>
+</html>
+  
+ 
+    <script  src="rjs/in1.js"></script>
+	
+	<script>
+var star_rating = 0;
+$(".get_value").click(function () {
+    if($(this).prop("checked")) {
+        star_rating = $(this).val();
+        console.log(star_rating);
+		alert("You rated this book: " + star_rating + " stars!"); 
+    }
+});
+</script>
+
+
+
+</body>
+
+</html>
