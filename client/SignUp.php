@@ -18,7 +18,7 @@
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet" />
     <!-- Your custom styles (optional) -->
-    <link href="index.css" rel="stylesheet" />
+    <link href="SignUp.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Comfortaa"
       rel="stylesheet"
@@ -30,7 +30,38 @@
       crossorigin="anonymous"
     />
   </head>
+  <?php
+  $connect = mysqli_connect('localhost', 'user', 'pass1234', 'mini_library') or die("Unable to connect.");
+  
+  if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['phoneNumber'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $name = $_POST['name'];
+    $phonesNumber = $_POST['phoneNumber'];
+    $query = 'SELECT * FROM user WHERE Email="'.$email.'" AND Password = "'.$password.'"';
+      $results = mysqli_query($connect, $query) or die("Error in query");
+      $rows = mysqli_num_rows($results);
+      $found = 0;
+      if (mysqli_num_rows($results) > 0) {
+        while ($row = mysqli_fetch_object($results)) {
+          if (($row->Email) == $email && ($row->Password) == $password) {
+            $found = 1;
+          }
+        }
+      }
 
+      if ($found == 1) {
+        echo '<script type="text/javascript">alert("Email already used. Please Sign in.");</script>';
+      }else {
+        $query = 'INSERT INTO user VALUES ("'.$name.'", "'.$email.'", "'.$password.'", "'.$phonesNumber.'")';
+        $results = mysqli_query($connect, $query) or die("Error in query");
+        if ($results) {
+          header("Location: SignIn.php");
+        }
+      }
+  }
+
+  ?>
   <body>
     <canvas id="nokey" width="800" height="800">
       Your Browser Don't Support Canvas
@@ -54,75 +85,53 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="app.html">App</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              id="navbarDropdownMenuLink-4"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="fas fa-user"></i>
-            </a>
-            <div
-              class="dropdown-menu dropdown-menu-right dropdown-info"
-              aria-labelledby="navbarDropdownMenuLink-4"
-            >
-              <a class="dropdown-item" href="#">My account</a>
-              <a class="dropdown-item" href="SignIn.html">Log In</a>
-            </div>
+            <a class="nav-link" href="index.php">Home</a>
+              <span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>
     </nav>
 
     <div class="my-container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="wrappers">
-            <p align="justify">
-              Libra, Is a web app that make managing your personal library much
-              easier.
-              <img
-                class="books-lover"
-                src="assets/book_lover.svg"
-                alt="book lover"
-              />
-            </p>
-          </div>
+      <!-- Default form register -->
+      <form class="text-center p-5" method="POST" action="">
+        <p class="h4 mb-4">Sign up</p>
+
+        <div class="md-form">
+          <input type="text" name="name" id="name" class="form-control" />
+          <label for="name">Name</label>
         </div>
-        <div class="col-md-6">
-          <div class="wrappers button-wrapper">
-            <div class="list-group">
-              <p class="list-group-item">
-                Manage Your Books Info.
-              </p>
-              <p class="list-group-item">
-                Manage your Book loan.
-              </p>
-              <p class="list-group-item">
-                Browse and Search your books.
-              </p>
-              <p class="list-group-item">
-                Write your own reviews on every book.
-              </p>
-            </div>
-            <a href="SignUp.html">
-              <button class="btn blue-gradient">
-                Join Our Web App
-              </button>
-            </a>
-          </div>
+        <div class="md-form">
+          <input type="text" name="email" id="email" class="form-control" />
+          <label for="email">Email</label>
         </div>
-      </div>
+        <div class="md-form">
+          <input type="password" name="password" id="password" class="form-control" />
+          <label for="password">Password</label>
+        </div>
+        <div class="md-form">
+          <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" />
+          <label for="phoneNumber">Phone Number</label>
+        </div>
+        <!-- Sign up button -->
+        <button class="btn blue-gradient">
+          Sign Up
+        </button>
+
+        <!-- Social register -->
+        <p>or sign up with:</p>
+
+        <a class="light-blue-text mx-2">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="light-blue-text mx-2">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </form>
+
+      <!-- Default form register -->
     </div>
+
     <footer class="font-small footer-color">
       <!-- Copyright -->
       <div class="text-center py-3">
@@ -142,13 +151,12 @@
       </div>
       <!-- Copyright -->
     </footer>
+
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.js"></script>
     <script type="text/javascript" src="js/canvas_controller.js"></script>
+  
   </body>
 </html>

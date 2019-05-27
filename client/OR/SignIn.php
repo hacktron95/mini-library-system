@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -30,7 +28,7 @@
       crossorigin="anonymous"
     />
   </head>
-
+  
   <body>
     <canvas id="nokey" width="800" height="800">
       Your Browser Don't Support Canvas
@@ -54,7 +52,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="index.php">Home</a>
           </li>
         </ul>
       </div>
@@ -62,18 +60,18 @@
 
     <div class="my-container">
       <!-- Default form register -->
-      <form class="text-center  p-5">
+      <form class="text-center  p-5" method="post" action="">
         <p class="h4 mb-4">Sign In</p>
         <div class="md-form">
-          <input type="text" id="email" class="form-control" />
+          <input type="text" name="email" id="email" class="form-control" required/>
           <label for="email">Email</label>
         </div>
         <div class="md-form">
-          <input type="password" id="password" class="form-control" />
+          <input type="password" name="password" id="password" class="form-control" required/>
           <label for="password">Password</label>
         </div>
         <!-- Sign up button -->
-        <button class="btn blue-gradient">
+        <button class="btn blue-gradient" id="submitForm" type="submit">
           Sign In
         </button>
 
@@ -116,5 +114,39 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/mdb.js"></script>
     <script type="text/javascript" src="js/canvas_controller.js"></script>
+    
+    <?php
+  $connect = mysqli_connect('localhost', 'user', 'pass1234', 'mini_library') or die("Unable to connect.");
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if (isset($_POST['email']) && isset($_POST['password'])){
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+
+      $query = 'SELECT * FROM user WHERE Email="'.$email.'" AND Password = "'.$password.'"';
+        $results = mysqli_query($connect, $query) or die("Error in query");
+        $rows = mysqli_num_rows($results);
+        $found = 0;
+        if (mysqli_num_rows($results) > 0) {
+          while ($row = mysqli_fetch_object($results)) {
+            if (($row->Email) == $email && ($row->Password) == $password) {
+              $found = 1;
+              $name = $row->Name; 
+            }
+          }
+        } 
+        
+        if ($found) {
+          session_start();
+          $_SESSION['user_name'] = $name;
+          $_SESSION['email'] = $email;
+          header ("Location: app.php?");
+
+        }else{
+          echo '<script type="text/javascript">alert("Email and/or Password are wrong.");</script>';
+        }
+      }
+    }
+
+  ?>
   </body>
 </html>
